@@ -1,6 +1,5 @@
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class 베스트셀러 {
     public static void main(String[]args) throws IOException {
@@ -19,7 +18,17 @@ public class 베스트셀러 {
             hashMap.put(key, ++value);
         }
 
-        System.out.println(hashMap);
+        List<String> keySetToList = new ArrayList<>(hashMap.keySet());
+
+        Collections.sort(keySetToList, (s1, s2) -> {
+           int compare = hashMap.get(s2).compareTo(hashMap.get(s1)); // value 내림차순 정렬
+           if(compare == 0) //만약 value가 같다면
+               compare = s1.compareTo(s2); //
+           return compare;
+        });
+
+        bw.write(keySetToList.get(0));
+        bw.flush();
 
     }
 }
