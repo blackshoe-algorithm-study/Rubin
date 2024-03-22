@@ -1,3 +1,5 @@
+package march_week3;
+
 import java.io.*;
 import java.util.*;
 public class 수_정렬하기_2 {
