@@ -2,6 +2,7 @@ package march_week3;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.*;
 
 public class ATM {
     public static void main(String[]args) throws IOException{
@@ -11,31 +12,18 @@ public class ATM {
 
         int times = Integer.parseInt(br.readLine());
 
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = Stream.of(br.readLine().split(" "))
+                .map(Integer::parseInt)
+                .sorted()
+                .collect(Collectors.toList());
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] sum = new int[times];
 
-        for(int i = 0; i < times; i++){
-            list.add(Integer.parseInt(st.nextToken()));
-        }
+        IntStream.range(0, times)
+                .forEach(i -> sum[i] = (i == 0 ? 0 : sum[i-1]) + list.get(i));
 
-        Collections.sort(list);
+        int solution = Arrays.stream(sum).sum();
 
-        List<Integer> sum = new ArrayList<>();
-        int temp = 0;
-
-        sum.add(list.get(0));
-
-        for(int j = 1; j < times; j++) {
-            temp = list.get(j);
-            sum.add(temp + sum.get(j-1));
-        }
-
-        int solution = 0;
-
-        for(int k = 0; k < times; k++){
-            solution += sum.get(k);
-        }
         bw.write(String.valueOf(solution));
         bw.flush();
     }
