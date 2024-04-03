@@ -34,8 +34,9 @@ public class 진법_변환 {
                 tmp = tmp - 55;
             }
             int ttmp = (int) Math.pow(B, i-1);
-            tmp += ttmp;
+            tmp *= ttmp;
             sum += tmp;
+
         }
         bw.write(String.valueOf(sum)+ "\n");
         bw.flush();
