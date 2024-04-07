@@ -1,7 +1,7 @@
 package april_week1;
 import java.io.*;
 import java.util.*;
-import java.util.stream.*;
+
 public class 진법_변환 {
     public static void main(String[]args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,27 +18,24 @@ public class 진법_변환 {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        char[] N = st.nextToken().toCharArray();
+        String number = st.nextToken();
+
         int B = Integer.parseInt(st.nextToken());
 
         int sum = 0;
 
-        for(int i = N.length; i > 0; i--){
-            //숫자 : 1~9 map to 49 ~ 57
-            //문자 : A~Z map to 65 ~ 90
-            int tmp = (int)N[i-1];
+        for(int i = 0; i < number.length(); i++){
+            int tmp = number.charAt(i);
 
-            if(tmp >= 49 && tmp <= 57){
-                tmp = tmp - 48;
-            }else if(tmp >= 65 && tmp <= 90){
-                tmp = tmp - 55;
+            if(Character.isAlphabetic(tmp)){
+                tmp = tmp - 'A' + 10;
+            }else{
+                tmp = tmp - '0';
             }
-            int ttmp = (int) Math.pow(B, i-1);
-            tmp *= ttmp;
-            sum += tmp;
 
+            sum += tmp * Math.pow(B, number.length() - i - 1);
         }
-        bw.write(String.valueOf(sum)+ "\n");
+        bw.write(sum+ "\n");
         bw.flush();
     }
 }

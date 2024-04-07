@@ -2,7 +2,6 @@ package april_week1;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.*;
 
 public class 빗물 {
     public static void main(String[] args) throws IOException {
@@ -15,41 +14,40 @@ public class 빗물 {
         int row = Integer.parseInt(st.nextToken());
         int col = Integer.parseInt(st.nextToken());
 
-        int[][] map = new int[row][col];
-
         st = new StringTokenizer(br.readLine());
+        int[] origin = new int[col];
 
-        for(int i = 0; i < col; i++){
-            int wall = Integer.parseInt(st.nextToken());
-            for(int j = 0; j < wall; j++){
-                map[j][i] = 1;
-            }
-        }
-        //System.out.println(Arrays.deepToString(map));
-
-        int cnt = 0;
-
-        for(int i = 0; i < row; i++){
-            for(int j = 0; j < col; j++){
-
-                if(map[i][j] == 0){
-                    if(i == 0) {
-                        cnt++;
-                        map[i][j] = 1;
-                    }
-                    else{
-                        continue;
-                    }
-                }
-
-                if(j-1 >= 0) {
-
-                }
-                if(j+1 < col){
-
-                }
-            }
+        for(int i = 0; i < origin.length; i++) {
+            origin[i] = Integer.parseInt(st.nextToken());
         }
 
+        int[] arr = new int[col];
+        int[] reverseArr = new int[col];
+
+        int max = 0;
+        int reverseMax = 0;
+
+        for(int i = 0; i < origin.length; i++){
+            max = Math.max(max, origin[i]);
+            reverseMax = Math.max(reverseMax, origin[col - i - 1]);
+
+            arr[i] = max;
+            reverseArr[col - i - 1] = reverseMax;
+        }
+        int sum = 0;
+
+//        for(int i = 0; i < origin.length; i++){
+//            System.out.println("arr " + i + " " + arr[i]);
+//            System.out.println("reverseArr " + i + " " + reverseArr[i]);
+//        }
+
+        for(int i = 0; i < origin.length; i++){
+            int limit = Math.min(arr[i], reverseArr[i]);
+
+            sum += (limit - origin[i]);
+        }
+
+        bw.write(sum+"\n");
+        bw.flush();
     }
 }
