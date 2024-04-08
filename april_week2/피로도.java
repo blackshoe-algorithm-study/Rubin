@@ -38,43 +38,18 @@ public class 피로도 {
         int cP = 0;
         int sumW = 0;
         boolean flag = true;
-        while(leftHours >= 0 && flag){
 
+        while(leftHours >= 0 && flag){
             if(cP+wP <= limit) {
                 cP += wP;
                 sumW += W;
-                leftHours--;
-
-                System.out.println("cP : " + cP + " wP : " + wP + " sumW : " + sumW + " limit : " + limit);
-
-                if(leftHours == 0) flag = false;
+//                System.out.println("cP : " + cP + " wP : " + wP + " sumW : " + sumW + " limit : " + limit);
             }else{
                 cP = cP-rP <= 0 ? 0 : cP-rP;
-                leftHours--;
-
-                System.out.println("cP : " + cP + " rP : " + rP + " limit : " + limit);
-
-                if(leftHours == 0) flag = false;
-            }
-//            while(cP+wP <= limit && flag){
-//                cP += wP;
-//                sumW += W;
-//                leftHours--;
-//
-//                System.out.println("cP : " + cP + " wP : " + wP + " sumW : " + sumW + " limit : " + limit);
-//
-//                if(leftHours == 0) flag = false;
-//            }
-//
-//            while(cP+wP >= limit && flag){
-//
-//                cP = cP-rP <= 0 ? 0 : cP-rP;
-//                leftHours--;
-//
 //                System.out.println("cP : " + cP + " rP : " + rP + " limit : " + limit);
-//
-//                if(leftHours == 0) flag = false;
-//            }
+            }
+            leftHours--;
+            if(leftHours == 0) flag = false;
         }
 
         bw.write(String.valueOf(sumW) + "\n");

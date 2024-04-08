@@ -34,7 +34,7 @@ public class 퇴사 {
                 System.out.println("cSum : " + cSum + " j : "+ j + " arr[j][0] : " + arr[j][0] + " arr[j][1] : " + arr[j][1] + " sol : " + sol);
                 cSum += arr[j][1];
                 j = j + arr[j][0] - 1;
-
+                //부분합
             }
 
             System.out.println("sol : " + sol + " cSum : " + cSum);
