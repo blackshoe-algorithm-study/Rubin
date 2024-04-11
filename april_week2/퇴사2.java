@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class 퇴사2 {
-    static int MAX;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,7 +21,6 @@ public class 퇴사2 {
             consultations.add(new Node(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
         }
 
-        MAX = 0;
         퇴사2 solver = new 퇴사2();
         bw.write(solver.maxProfit(0, consultations, N) + "\n");
         bw.flush();
