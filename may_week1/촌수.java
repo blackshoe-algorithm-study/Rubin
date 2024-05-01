@@ -47,7 +47,6 @@ public class 촌수 {
 
         int result = 0;
         result += DFS(start, target, visited, 0);
-        if(result == 0) result = -1;
 
         bw.write(result + "\n");
         bw.flush();
@@ -55,17 +54,38 @@ public class 촌수 {
 
     }
 
+//    public static int DFS(int start, int target, boolean[] visited, int chon){
+//
+//        visited[start] = true;
+//        if(start == target) return chon+1;
+//
+//        for(int v : adjList.get(start)){
+//            if(!visited[v]) DFS(v, target, visited, chon+1);
+//        }
+//
+//        return -1;
+//    }
+
     public static int DFS(int start, int target, boolean[] visited, int chon){
 
+        //visited[start] = true
         visited[start] = true;
 
+        //만약 start == target이라면 촌수 반환
+        if(start == target) return chon;
+
         for(int v : adjList.get(start)){
-            if(v == target) return chon;
-            else if(!visited[v]) DFS(v, target, visited, chon+1);
+            if(!visited[v]) {
+                int result = DFS(v, target, visited, chon+1);
+
+                if(result != -1) return result;
+            }
         }
 
-        return chon;
+        return -1;
     }
+
+
 
 //    public static int BFS(int start, int target, Deque<Integer> q, boolean[] visited, ArrayList<LinkedList<Integer>> adjList){
 //
