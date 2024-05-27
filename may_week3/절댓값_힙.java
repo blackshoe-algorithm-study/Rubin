@@ -12,6 +12,7 @@ public class 절댓값_힙 {
 
         PriorityQueue<Integer> minQ = new PriorityQueue<>(N);
         PriorityQueue<Integer> maxQ = new PriorityQueue<>(N, Collections.reverseOrder());
+
         for(int i = 0; i < N; i++){
             int next = Integer.parseInt(br.readLine());
 
