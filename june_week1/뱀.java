@@ -43,6 +43,8 @@ public class 뱀 {
         while(!isGameOver(snake.getHeadLocation(), snake.locations)){
             snake.move(map, apples, directionInfos);
         }
+
+
     }
 
     static class Snake{
