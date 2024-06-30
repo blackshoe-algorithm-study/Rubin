@@ -24,7 +24,6 @@ public class 특정_거리의_도시_찾기 {
             Arrays.fill(graph[i], INF); //INF : 방향 없음 의미
         }
 
-
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
 
@@ -45,7 +44,6 @@ public class 특정_거리의_도시_찾기 {
 
         }
 
-
         boolean v[] = new boolean[N+1];
         Arrays.fill(v, false);
         v[X] = true;
@@ -65,7 +63,5 @@ public class 특정_거리의_도시_찾기 {
         if(match == 0) bw.write("-1");
         bw.flush();
     }
-
-
 
 }
