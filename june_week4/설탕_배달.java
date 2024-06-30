@@ -18,7 +18,6 @@ public class 설탕_배달 {
     }
 
     static void solution(int N){
-        //int[] kg = {3, 5};
 
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         int quote = N/5; //N을 5로 나눈 몫
