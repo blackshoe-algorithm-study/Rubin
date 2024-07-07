@@ -23,6 +23,7 @@ public class DNA_문자열 {
         }
 
         int[] count = new int[4];
+        Arrays.fill(count, 0);
         int result = 0;
 
         //초기 윈도우 설정
