@@ -1,3 +1,5 @@
+package self_practice.브루트포스;
+
 import java.io.*;
 import java.util.*;
 
@@ -12,7 +14,7 @@ public class 링크와스타트 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         N = Integer.parseInt(br.readLine());
-        //1 vs 4여도 됨
+
         stats = new int[N][N];
         team = new boolean[N];
         StringTokenizer st;
