@@ -22,9 +22,7 @@ public class 주몽2 {
         sol = 0;
         int left = 0;
         int right = N-1;
-
-        //투 포인터 시작
-        while(left < right) {
+        while(left < right){
             int sum = m[left] + m[right];
             if(sum == M){
                 sol++;
@@ -36,7 +34,6 @@ public class 주몽2 {
                 right--;
             }
         }
-
         bw.write(String.valueOf(sol));
         bw.flush();
     }

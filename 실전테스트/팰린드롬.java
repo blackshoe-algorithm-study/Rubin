@@ -29,7 +29,7 @@ public class 팰린드롬 {
         pelindrom = sb.toString();
 
         int M = Integer.parseInt(br.readLine());
-        
+
     }
 }
 
