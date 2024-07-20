@@ -1,4 +1,4 @@
-package self_practice;
+package self_practice.너비와깊이우선탐색;
 import java.io.*;
 import java.util.*;
 public class 바이러스 {

@@ -1,4 +1,4 @@
-package self_practice;
+package self_practice.DP;
 import java.io.*;
 import java.util.*;
 public class 가장_긴_증가하는_부분수열 {

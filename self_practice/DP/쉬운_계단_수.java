@@ -1,4 +1,4 @@
-package self_practice;
+package self_practice.DP;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
