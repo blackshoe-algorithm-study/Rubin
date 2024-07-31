@@ -23,9 +23,9 @@ public class 최단경로 {
             st = new StringTokenizer(br.readLine());
             int index = Integer.parseInt(st.nextToken());
             int to = Integer.parseInt(st.nextToken());
-            int cost = Integer.parseInt(st.nextToken());
+            int distance = Integer.parseInt(st.nextToken());
 
-            graph[index].add(new Node(to, cost));
+            graph[index].add(new Node(to, distance));
         }
 
         int[] dist = Dijkstra(start);
@@ -54,10 +54,10 @@ public class 최단경로 {
 
             visited[curr.index] = true;
 
-            for(Node adjNode : graph[curr.index]){
-                if(!visited[adjNode.index] && dist[adjNode.index] > dist[curr.index] + adjNode.cost){
-                    dist[adjNode.index] = dist[curr.index] + adjNode.cost;
-                    pq.offer(new Node(adjNode.index, dist[adjNode.index]));
+            for(Node adj : graph[curr.index]){
+                if(!visited[adj.index] && dist[adj.index] > dist[curr.index] + adj.distance){
+                    dist[adj.index] = dist[curr.index] + adj.distance;
+                    pq.offer(new Node(adj.index, dist[adj.index]));
                 }
             }
         }
@@ -68,14 +68,14 @@ public class 최단경로 {
 
 class Node implements Comparable<Node>{
     int index;
-    int cost;
+    int distance;
 
-    public Node(int index, int cost){
+    public Node(int index, int distance){
         this.index = index;
-        this.cost = cost;
+        this.distance = distance;
     }
     @Override
     public int compareTo(Node others){
-        return Integer.compare(this.cost, others.cost);
+        return Integer.compare(this.distance, others.distance);
     }
 }

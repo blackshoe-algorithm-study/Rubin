@@ -38,7 +38,7 @@ public class 퇴사2 {
         // 상담을 진행하는 경우 (분기)
         int profitWith = 0;
         if (day + consultations.get(day).days <= N) { // 상담이 가능한 경우
-            profitWith = consultations.get(day).cost + maxProfit(day + consultations.get(day).days, consultations, N);
+            profitWith = consultations.get(day).distance + maxProfit(day + consultations.get(day).days, consultations, N);
         }
 
         // 두 경우 중 최대 이익 반환
@@ -47,11 +47,11 @@ public class 퇴사2 {
 
     static class Node {
         int days;
-        int cost;
+        int distance;
 
-        Node(int days, int cost) {
+        Node(int days, int distance) {
             this.days = days;
-            this.cost = cost;
+            this.distance = distance;
         }
     }
 }

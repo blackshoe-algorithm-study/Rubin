@@ -46,8 +46,8 @@ public class 바이러스 {
         currentNode.visited = true;
 
         sol++;
-        for (Node adjNode : currentNode.adjList) {
-            DFS(adjNode.idx);
+        for (Node adj : currentNode.adjList) {
+            DFS(adj.idx);
         }
     }
 }

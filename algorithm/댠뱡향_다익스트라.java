@@ -17,9 +17,9 @@ class 단방향_다익스트라 {
             st = new StringTokenizer(br.readLine());
             int v = Integer.parseInt(st.nextToken());
             int w = Integer.parseInt(st.nextToken());
-            int cost = Integer.parseInt(st.nextToken());
+            int distance = Integer.parseInt(st.nextToken());
 
-            graph[v].add(new Node(w, cost));
+            graph[v].add(new Node(w, distance));
         }
 
         int start = Integer.parseInt(br.readLine());
@@ -45,8 +45,8 @@ class 단방향_다익스트라 {
             visited[nowVertexIdx] = true;
 
             for(Node next : graph[nowVertexIdx]) {
-                if(dist[next.idx] > dist[nowVertexIdx] + next.cost){
-                    dist[next.idx] = dist[nowVertexIdx] + next.cost;
+                if(dist[next.idx] > dist[nowVertexIdx] + next.distance){
+                    dist[next.idx] = dist[nowVertexIdx] + next.distance;
 
                     pq.offer(new Node(next.idx, dist[next.idx]));
                 }
@@ -62,16 +62,16 @@ class 단방향_다익스트라 {
 
 class Node implements Comparable<Node>{
     int idx;
-    int cost;
+    int distance;
 
-    public Node(int idx, int cost){
+    public Node(int idx, int distance){
         this.idx = idx;
-        this.cost = cost;
+        this.distance = distance;
     }
 
     @Override
     public int compareTo(Node other){
-        return Integer.compare(this.cost, other.cost);
+        return Integer.compare(this.distance, other.distance);
     }
 }
 
